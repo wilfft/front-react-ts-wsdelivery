@@ -14,7 +14,7 @@
 
 .home-titulo {
   font-weight: bold;
-  font-size: 55px;
+  font-size: 50px;
   line-height: 58px;
   letter-spacing: -0.015em;
   color: var(--dark-color);
@@ -23,7 +23,7 @@
 
 .home-subtitulo {
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 33px;
   letter-spacing: -0.015em;
   color: var(--secondary-color);

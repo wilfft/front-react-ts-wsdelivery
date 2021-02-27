@@ -1,5 +1,6 @@
 import "./styles.css";
 import { ReactComponent as Logo } from "./Logo.svg";
+import { Link } from "react-router-dom";
 const Home = () => (
   <div className="home-container">
     <div className="home-conteudo">
@@ -13,9 +14,9 @@ const Home = () => (
           Escolha seu pedido e em poucos minutos <br /> levaremos para sua porta
           :)
         </h3>
-        <a href="home" className="home-btn">
+        <Link to="/ordens" className="home-btn">
           FAZER PEDIDO
-        </a>
+        </Link>
       </div>
 
       <div className="home-imagem">
