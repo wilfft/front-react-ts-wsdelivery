@@ -1,6 +1,6 @@
 .home-container {
-  padding-top: 100px;
-  height: calc(100vh - 286px);
+  height: calc(100vh - 356px);
+  padding-top: 42px;
 }
 
 .home-container h1 {
@@ -52,6 +52,7 @@
 
 .home-imagem svg {
   width: 100% !important;
+  height: 90%;
 }
 
 @media only screen and (max-width: 768px) {
