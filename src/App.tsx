@@ -1,13 +1,15 @@
 import "./App.css";
-import Contador from "./Contador";
-import Hello from "./Hello";
+import Footer from "./Footer";
+import Home from "./Home";
+import Navbar from "./Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <Hello mensagem="William" />
-      <Contador></Contador>
-    </div>
+    <>
+      <Navbar />
+      <Home />
+      <Footer />
+    </>
   );
 }
 

@@ -1,0 +1,30 @@
+.linkedin-icon {
+  width: 25px;
+  margin-left: 10px;
+}
+
+.github-icon {
+  margin-right: 10px;
+  width: 25px;
+}
+
+.footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: var(--dark-color);
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #fff;
+}
+
+.footer-icones {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-icones > * {
+  margin-right: 5px;
+}
