@@ -22,7 +22,7 @@ const LocalizacaoOrdem = () => {
 
   const loadOptions = async (
     inputValue: string,
-    callback: (places: Place[]) => void
+    callback: (locais: Local[]) => void
   ) => {
     const response = await fetchLocalMapBox(inputValue);
 
