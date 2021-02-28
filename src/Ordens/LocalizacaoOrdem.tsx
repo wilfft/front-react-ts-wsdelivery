@@ -1,7 +1,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AsyncSelect from "react-select/async";
+import { useState } from "react";
 
-const position = {
+const posicaoInicial = {
   lat: -23.2798068,
   lng: -47.2713556,
 };
@@ -15,7 +16,9 @@ type Local = {
 };
 
 const LocalizacaoOrdem = () => {
-  const [endereco, setEndereco] = useState<Local>({});
+  const [endereco, setEndereco] = useState<Local>({
+    posicao: posicaoInicial,
+  });
 
   const loadOptions = async (
     inputValue: string,
@@ -26,8 +29,8 @@ const LocalizacaoOrdem = () => {
     const places = response.data.features.map((item: any) => {
       return {
         label: item.place_name,
-        value: item.place_name,
-        position: {
+        valor: item.place_name,
+        posicao: {
           lat: item.center[1],
           lng: item.center[0],
         },
@@ -38,12 +41,12 @@ const LocalizacaoOrdem = () => {
     callback(places);
   };
 
-  const handleChangeSelect = (place: Place) => {
+  const handleChangeSelect = (local: Local) => {
     setEndereco(local);
     onChangeLocation({
-      latitude: place.position.lat,
-      longitude: place.position.lng,
-      address: place.label!,
+      latitude: local.posicao.lat,
+      longitude: local.posicao.lng,
+      endereco: local.label!,
     });
   };
   return (
@@ -59,12 +62,12 @@ const LocalizacaoOrdem = () => {
           />
         </div>
 
-        <MapContainer center={position} zoom={15} scrollWheelZoom={false}>
+        <MapContainer center={posicaoInicial} zoom={15} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={position}>
+          <Marker position={posicaoInicial}>
             <Popup>
               <p
                 style={{

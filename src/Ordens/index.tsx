@@ -4,6 +4,7 @@ import ListaDeProdutos from "./ListaDeProdutos";
 import { Produto } from "./types";
 import "./styles.css";
 import { carregaProdutos } from "../api";
+import LocalizacaoOrdem from "./LocalizacaoOrdem";
 
 const Ordens = () => {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -20,6 +21,7 @@ const Ordens = () => {
     <div className="ordens-container">
       <EtapasPedido />
       <ListaDeProdutos produtos={produtos} />
+      <LocalizacaoOrdem />
     </div>
   );
 };
