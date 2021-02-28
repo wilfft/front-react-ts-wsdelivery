@@ -1,11 +1,26 @@
+import { useEffect, useState } from "react";
 import EtapasPedido from "./EtapasPedido";
 import ListaDeProdutos from "./ListaDeProdutos";
+import { Produto } from "./types";
 import "./styles.css";
-const Ordens = () => (
-  <div className="ordens-container">
-    <EtapasPedido />
-    <ListaDeProdutos />
-  </div>
-);
+import { carregaProdutos } from "../api";
 
+const Ordens = () => {
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+
+  useEffect(() => {
+    carregaProdutos()
+      .then((response) => setProdutos(response.data))
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }, []);
+
+  return (
+    <div className="ordens-container">
+      <EtapasPedido />
+      <ListaDeProdutos produtos={produtos} />
+    </div>
+  );
+};
 export default Ordens;

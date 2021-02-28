@@ -1,19 +1,33 @@
-import { ReactComponent as PizzaImg } from "./imagemPizza.svg";
+import { Produto } from "./types";
 
-const ProdutoCard = () => (
-  <div className="produto-card-container">
-    <h3 className="produto-card-titulo">Pizza de Calabresa</h3>
-    <PizzaImg className="produto-card-img" />
-    <h3 className="produto-card-preco">39,90</h3>
-    <div className="produto-card-descricao">
-      <h3>Descriçao:</h3>
-      <p>
-        Uma deliciosa combinação de Linguiça Calabresa, rodelas de cebolas
-        frescas, azeitonas pretas, mussarela, polpa de tomate, orégano e massa
-        especial.
-      </p>
+type Props = {
+  produto: Produto;
+};
+const formataPreco = (preco: number) => {
+  const formatador = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+  });
+  return formatador.format(preco);
+};
+
+const ProdutoCard = ({ produto }: Props) => {
+  return (
+    <div className="produto-card-container">
+      <h3 className="produto-card-titulo">{produto.nome}</h3>
+      <img
+        src={produto.imageUri}
+        className="produto-card-img"
+        alt={produto.nome}
+      />
+      <h3 className="produto-card-preco">{formataPreco(produto.preco)}</h3>
+      <div className="produto-card-descricao">
+        <h3>Descriçao:</h3>
+        <p>{produto.descricao}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ProdutoCard;
