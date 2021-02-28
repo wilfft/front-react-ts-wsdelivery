@@ -158,11 +158,11 @@
   margin-top: 20px;
 }
 
-.filter {
+.campo-endereco {
   width: 80%;
 }
 
-.filter > div {
+.campo-endereco > div {
   border-radius: 10px;
   min-height: 60px;
 }
@@ -175,7 +175,7 @@
   z-index: 0;
 }
 
-.order-location-title {
+.ordem-localizacao-titulo {
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
@@ -273,11 +273,11 @@
     padding: 0;
   }
 
-  .order-location-conteudo {
+  .ordem-localizacao-conteudo {
     width: 90%;
   }
 
-  .order-location-container {
+  .ordem-localizacao-container {
     margin-bottom: 20px;
   }
 

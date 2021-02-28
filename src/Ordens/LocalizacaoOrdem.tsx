@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AsyncSelect from "react-select/async";
 import { useState } from "react";
+import { carregaLocalMapBox } from "../api";
 
 const posicaoInicial = {
   lat: -23.2798068,
@@ -24,7 +25,7 @@ const LocalizacaoOrdem = () => {
     inputValue: string,
     callback: (locais: Local[]) => void
   ) => {
-    const response = await fetchLocalMapBox(inputValue);
+    const response = await carregaLocalMapBox(inputValue);
 
     const places = response.data.features.map((item: any) => {
       return {
@@ -43,11 +44,11 @@ const LocalizacaoOrdem = () => {
 
   const handleChangeSelect = (local: Local) => {
     setEndereco(local);
-    onChangeLocation({
+    /* onChangeLocalizacao({
       latitude: local.posicao.lat,
       longitude: local.posicao.lng,
       endereco: local.label!,
-    });
+    });*/
   };
   return (
     <div className="ordem-localizacao-container">
@@ -59,15 +60,16 @@ const LocalizacaoOrdem = () => {
           <AsyncSelect
             placeholder="Digite um endereço para entregar o pedido"
             className="campo-endereco"
+            onChange={(valor) => handleChangeSelect(valor as Local)} //typescritp fazendo casting
           />
         </div>
 
-        <MapContainer center={posicaoInicial} zoom={15} scrollWheelZoom={false}>
+        <MapContainer center={endereco.posicao} zoom={15} scrollWheelZoom>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={posicaoInicial}>
+          <Marker position={endereco.posicao}>
             <Popup>
               <p
                 style={{
