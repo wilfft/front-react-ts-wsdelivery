@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AsyncSelect from "react-select/async";
 import { useState } from "react";
 import { carregaLocalMapBox } from "../api";
+import { LocalizacaoOrdemData } from "./types";
 
 const posicaoInicial = {
   lat: -23.2798068,
@@ -16,7 +17,12 @@ type Local = {
   };
 };
 
-const LocalizacaoOrdem = () => {
+type Props = {
+  onChangeLocalizacao: (localizacao: LocalizacaoOrdemData) => void;
+};
+
+const LocalizacaoOrdem = ({ onChangeLocalizacao }: Props) => {
+  //EXTRAI ONCHAGE DE DENTRO DA PROPS
   const [endereco, setEndereco] = useState<Local>({
     posicao: posicaoInicial,
   });
@@ -26,7 +32,7 @@ const LocalizacaoOrdem = () => {
     callback: (locais: Local[]) => void
   ) => {
     const response = await carregaLocalMapBox(inputValue);
-
+    console.log(response.data.features);
     const places = response.data.features.map((item: any) => {
       return {
         label: item.place_name,
@@ -40,46 +46,55 @@ const LocalizacaoOrdem = () => {
     });
 
     callback(places);
+    return null;
   };
 
   const handleChangeSelect = (local: Local) => {
     setEndereco(local);
-    /* onChangeLocalizacao({
+    onChangeLocalizacao({
       latitude: local.posicao.lat,
       longitude: local.posicao.lng,
-      endereco: local.label!,
-    });*/
+      endereco: local.label,
+    });
   };
+
   return (
     <div className="ordem-localizacao-container">
       <div className="ordem-localizacao-conteudo">
         <h3 className="ordem-localizacao-titulo">
           Selecione onde o pedido deve ser entregue:
         </h3>
+
         <div className="ordem-localizacao-endereco-container">
           <AsyncSelect
             placeholder="Digite um endereço para entregar o pedido"
             className="campo-endereco"
-            onChange={(valor) => handleChangeSelect(valor as Local)} //typescritp fazendo casting
+            onChange={(valor) => handleChangeSelect(valor as Local)}
+            loadOptions={loadOptions} //typescritp fazendo casting
           />
         </div>
 
-        <MapContainer center={endereco.posicao} zoom={15} scrollWheelZoom>
+        <MapContainer
+          center={endereco.posicao}
+          zoom={15}
+          scrollWheelZoom
+          key={endereco.posicao.lat}
+        >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Marker position={endereco.posicao}>
             <Popup>
-              <p
+              <span
                 style={{
                   textAlign: "center",
                   fontFamily: "open sans",
                   fontWeight: "bold",
                 }}
               >
-                Estou <br /> Aqui!
-              </p>
+                {endereco.label}
+              </span>
             </Popup>
           </Marker>
         </MapContainer>

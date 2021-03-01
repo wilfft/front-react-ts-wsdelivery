@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import EtapasPedido from "./EtapasPedido";
 import ListaDeProdutos from "./ListaDeProdutos";
-import { Produto } from "./types";
+import { LocalizacaoOrdemData, Produto } from "./types";
 import "./styles.css";
 import { carregaProdutos } from "../api";
 import LocalizacaoOrdem from "./LocalizacaoOrdem";
 
 const Ordens = () => {
   const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [
+    localizacaoOrdem,
+    setLocalizacaoOrdem,
+  ] = useState<LocalizacaoOrdemData>();
 
   useEffect(() => {
     carregaProdutos()
@@ -21,7 +25,9 @@ const Ordens = () => {
     <div className="ordens-container">
       <EtapasPedido />
       <ListaDeProdutos produtos={produtos} />
-      <LocalizacaoOrdem />
+      <LocalizacaoOrdem
+        onChangeLocalizacao={(localizacao) => setLocalizacaoOrdem(localizacao)}
+      />
     </div>
   );
 };
