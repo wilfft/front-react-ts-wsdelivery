@@ -77,7 +77,7 @@ const LocalizacaoOrdem = ({ onChangeLocalizacao }: Props) => {
         <MapContainer
           center={endereco.posicao}
           zoom={15}
-          scrollWheelZoom
+          scrollWheelZoom={false}
           key={endereco.posicao.lat}
         >
           <TileLayer

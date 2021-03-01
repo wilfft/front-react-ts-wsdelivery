@@ -15,7 +15,6 @@ const Routes = () => (
         <Home />
       </Route>
     </Switch>
-    <Footer />
   </BrowserRouter>
 );
 

@@ -71,7 +71,7 @@
   cursor: pointer;
 }
 
-.produto-card-container.selected {
+.produto-card-container.selecionado {
   border: 4px solid #008e5b;
   box-sizing: border-box;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
@@ -91,7 +91,7 @@
   text-align: center;
 }
 
-.produto-card-container.selected .produto-card-titulo {
+.produto-card-container.selecionado .produto-card-titulo {
   color: #008e5b;
 }
 
@@ -111,7 +111,7 @@
   text-align: left;
 }
 
-.produto-card-container.selected .produto-card-preco {
+.produto-card-container.selecionado .produto-card-preco {
   color: #008e5b;
 }
 
@@ -184,13 +184,13 @@
   color: var(--secondary-color);
 }
 
-.order-summary-container {
+.ordem-resumo-container {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 }
 
-.order-summary-conteudo {
+.ordem-resumo-conteudo {
   width: calc(70% - 40px);
   display: flex;
   justify-content: space-between;
@@ -202,7 +202,7 @@
   padding: 20px;
 }
 
-.amount-selected-container {
+.quantidade-selecionada-container {
   font-weight: normal;
   font-size: 11px;
   line-height: 15px;
@@ -211,7 +211,7 @@
   margin-bottom: 10px;
 }
 
-.amount-selected {
+.quantidade-selecionada {
   font-weight: bold;
   font-size: 16px;
   line-height: 15px;
@@ -219,7 +219,7 @@
   margin-right: 5px;
 }
 
-.order-summary-total {
+.ordem-resumo-total {
   font-weight: normal;
   font-size: 14px;
   line-height: 15px;
@@ -228,7 +228,7 @@
   display: block;
 }
 
-.order-summary-price {
+.ordem-resumo-preco {
   font-weight: bold;
   font-size: 18px;
   line-height: 19px;
@@ -237,7 +237,7 @@
   margin-right: 5px;
 }
 
-.order-summary-make-order {
+.ordem-resumo-realizar-ordem {
   width: 220px;
   height: 45px;
   background: #fff;
@@ -252,11 +252,11 @@
   cursor: pointer;
 }
 
-.order-summary-make-order:focus {
+.ordem-resumo-realizar-ordem:focus {
   outline: none;
 }
 
-.order-summary-make-order:hover {
+.ordem-resumo-realizar-ordem:hover {
   background-color: #fcf2f2;
   transform: scale(1.01);
 }
@@ -281,13 +281,13 @@
     margin-bottom: 20px;
   }
 
-  .order-summary-conteudo {
+  .ordem-resumo-conteudo {
     width: 80%;
     display: flex;
     flex-direction: column;
   }
 
-  .order-summary-make-order {
+  .ordem-resumo-realizar-ordem {
     margin-top: 15px;
     width: 100%;
   }

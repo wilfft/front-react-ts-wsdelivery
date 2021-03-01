@@ -2,7 +2,10 @@ import { Produto } from "./types";
 
 type Props = {
   produto: Produto;
+  aoSelecionarProduto: (produto: Produto) => void;
+  estaSelecionado: boolean;
 };
+
 const formataPreco = (preco: number) => {
   const formatador = new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -12,9 +15,17 @@ const formataPreco = (preco: number) => {
   return formatador.format(preco);
 };
 
-const ProdutoCard = ({ produto }: Props) => {
+const ProdutoCard = ({
+  produto,
+  aoSelecionarProduto,
+  estaSelecionado,
+}: Props) => {
   return (
-    <div className="produto-card-container">
+    <div
+      className={`produto-card-container 
+      ${estaSelecionado ? "selecionado" : ""}`}
+      onClick={() => aoSelecionarProduto(produto)}
+    >
       <h3 className="produto-card-titulo">{produto.nome}</h3>
       <img
         src={produto.imageUri}
