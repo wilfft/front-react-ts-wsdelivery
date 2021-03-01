@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import EtapasPedido from "./EtapasPedido";
 import ListaDeProdutos from "./ListaDeProdutos";
-import { LocalizacaoOrdemData, Produto } from "./types";
+import { LocalizacaoDaOrdemData, Produto } from "./types";
 import "./styles.css";
 import { carregaProdutos } from "../api";
 import LocalizacaoOrdem from "./LocalizacaoOrdem";
@@ -21,7 +21,7 @@ const Ordens = () => {
   const [
     localizacaoOrdem,
     setLocalizacaoOrdem,
-  ] = useState<LocalizacaoOrdemData>();
+  ] = useState<LocalizacaoDaOrdemData>();
 
   useEffect(() => {
     carregaProdutos()
