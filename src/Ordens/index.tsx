@@ -14,6 +14,9 @@ const Ordens = () => {
   const [produtosSelecionados, setProdutosSelecionados] = useState<Produto[]>(
     []
   );
+  const valorTotal = produtosSelecionados.reduce((soma, atual) => {
+    return soma + atual.preco;
+  }, 0);
 
   const [
     localizacaoOrdem,
@@ -61,7 +64,10 @@ const Ordens = () => {
             setLocalizacaoOrdem(localizacao)
           }
         />
-        <ResumoOrdem />
+        <ResumoOrdem
+          quantidade={produtosSelecionados.length}
+          valorTotal={valorTotal}
+        />
       </div>
       <Footer />
     </>

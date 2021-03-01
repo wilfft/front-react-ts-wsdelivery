@@ -1,18 +1,10 @@
+import { formataPreco } from "./funcoesAuxiliares";
 import { Produto } from "./types";
 
 type Props = {
   produto: Produto;
   aoSelecionarProduto: (produto: Produto) => void;
   estaSelecionado: boolean;
-};
-
-const formataPreco = (preco: number) => {
-  const formatador = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    minimumFractionDigits: 2,
-  });
-  return formatador.format(preco);
 };
 
 const ProdutoCard = ({

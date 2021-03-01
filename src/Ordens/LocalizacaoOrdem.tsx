@@ -93,7 +93,7 @@ const LocalizacaoOrdem = ({ onChangeLocalizacao }: Props) => {
                   fontWeight: "bold",
                 }}
               >
-                {endereco.label}
+                {endereco.label || "voce está aqui"}
               </span>
             </Popup>
           </Marker>

@@ -1,13 +1,22 @@
-const ResumoOrdem = () => (
+import { formataPreco } from "./funcoesAuxiliares";
+
+type Props = {
+  quantidade: number;
+  valorTotal: number;
+};
+
+const ResumoOrdem = ({ quantidade, valorTotal }: Props) => (
   <div className="ordem-resumo-container">
     <div className="ordem-resumo-conteudo">
       <div>
         <span className="quantidade-selecionada-container">
-          <strong className="quantidade-selecionada">2</strong>
+          <strong className="quantidade-selecionada">{quantidade}</strong>
           PEDIDOS SELECIONADOS
         </span>
         <span className="ordem-resumo-total">
-          <strong className="quantidade-selecionada">R$ 50,00</strong>
+          <strong className="quantidade-selecionada">
+            {formataPreco(valorTotal)}
+          </strong>
           VALOR TOTAL
         </span>
       </div>
