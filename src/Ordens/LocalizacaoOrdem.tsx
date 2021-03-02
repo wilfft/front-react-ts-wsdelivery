@@ -32,7 +32,7 @@ const LocalizacaoOrdem = ({ onChangeLocalizacao }: Props) => {
     callback: (locais: Local[]) => void
   ) => {
     const response = await carregaLocalMapBox(inputValue);
-    console.log(response.data.features);
+
     const places = response.data.features.map((item: any) => {
       return {
         label: item.place_name,

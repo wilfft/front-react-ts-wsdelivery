@@ -6,8 +6,16 @@ export type Produto = {
   imageUri: string;
 };
 
-export type LocalizacaoOrdemData = {
+export type LocalizacaoDaOrdemData = {
   latitude: number;
   longitude: number;
   endereco: string;
 };
+
+type ProdutoId = {
+  id: number;
+};
+
+export type OrdemPayload = {
+  produtos: ProdutoId[];
+} & LocalizacaoDaOrdemData; //fazendo MERGE entre objetos

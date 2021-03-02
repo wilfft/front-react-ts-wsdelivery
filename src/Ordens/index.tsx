@@ -1,13 +1,15 @@
+import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import EtapasPedido from "./EtapasPedido";
 import ListaDeProdutos from "./ListaDeProdutos";
 import { LocalizacaoDaOrdemData, Produto } from "./types";
-import "./styles.css";
 import { carregaProdutos } from "../api";
 import LocalizacaoOrdem from "./LocalizacaoOrdem";
 import ResumoOrdem from "./ResumoOrdem";
 import Footer from "../Footer";
 import { verificaSeEstaSelecionado } from "./funcoesAuxiliares";
+import { salvarOrdem } from "./../api";
+import "./styles.css";
 
 const Ordens = () => {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -50,6 +52,23 @@ const Ordens = () => {
       ]); //adiciona o novo aos antigos
     }
   };
+
+  const handleSubmit = () => {
+    const produtosIds = produtosSelecionados.map(({ id }) => ({ id }));
+    const payload = {
+      ...localizacaoOrdem!,
+      produtos: produtosIds,
+    };
+
+    salvarOrdem(payload)
+      .then((response) => {
+        toast.error(`Pedido enviado com sucesso! Nº   ${response.data.id}`);
+        setProdutosSelecionados([]);
+      })
+      .catch(() => {
+        toast.warning("Erro ao enviar pedido");
+      });
+  };
   return (
     <>
       <div className="ordens-container">
@@ -67,6 +86,7 @@ const Ordens = () => {
         <ResumoOrdem
           quantidade={produtosSelecionados.length}
           valorTotal={valorTotal}
+          onSubmit={handleSubmit}
         />
       </div>
       <Footer />
