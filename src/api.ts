@@ -1,11 +1,11 @@
 import axios from "axios";
 import { OrdemPayload } from "./Ordens/types";
 
-//const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 const mapboxToken = process.env.REACT_APP_ACCESS_TOKEN_MAP_BOX;
 
 export function carregaProdutos() {
-  return axios(`https://spring-app-delivery.herokuapp.com/produtos`);
+  return axios(`${API_URL}/produtos`);
 }
 
 export function carregaLocalMapBox(local: string) {
@@ -15,8 +15,5 @@ export function carregaLocalMapBox(local: string) {
 }
 
 export const salvarOrdem = (payload: OrdemPayload) => {
-  return axios.post(
-    `https://spring-app-delivery.herokuapp.com/ordens`,
-    payload
-  );
+  return axios.post(`${API_URL}/ordens`, payload);
 };
