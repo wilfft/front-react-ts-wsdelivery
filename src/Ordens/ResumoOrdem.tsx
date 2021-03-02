@@ -3,9 +3,10 @@ import { formataPreco } from "./funcoesAuxiliares";
 type Props = {
   quantidade: number;
   valorTotal: number;
+  onSubmit: () => void;
 };
 
-const ResumoOrdem = ({ quantidade, valorTotal }: Props) => (
+const ResumoOrdem = ({ quantidade, valorTotal, onSubmit }: Props) => (
   <div className="ordem-resumo-container">
     <div className="ordem-resumo-conteudo">
       <div>
@@ -20,7 +21,9 @@ const ResumoOrdem = ({ quantidade, valorTotal }: Props) => (
           VALOR TOTAL
         </span>
       </div>
-      <button className="ordem-resumo-realizar-ordem">FAZER PEDIDO</button>
+      <button onClick={onSubmit} className="ordem-resumo-realizar-ordem">
+        FAZER PEDIDO
+      </button>
     </div>
   </div>
 );
