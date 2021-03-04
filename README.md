@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+## Front end do aplicativo WS-DELIVERY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Desenvolvido em React e Typescript
 
-## Available Scripts
+Bibliotecas utilizadas:
 
-In the project directory, you can run:
+- axios para requisiçoes na api, 
+- leaflet para mapas, 
+- tostify para notificaçoes, 
+- react select para carregamento dinamico de nome das ruas  
 
-### `npm start`
+### Algumas alterações precisam ser feitas para estar 100% funcionado, como aceitar um endereço escrito pelo usuário, caso a api do leaflet falhe.
+### Incluir quantidade aos produtos adicionados no pedido
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Para startar a aplicação: 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+> - ##### npm install
+>
+> - ##### npm start
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### PÁGINAS 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### INICIO: botão para fazer pedido
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### PRODUTOS: os produtos podem ser selecionados e deselecionados, o valor é calculado automaticamente, no final da página é mostrado um mapa e um campo para inserir o endereço de entrega.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### REALIZAR PEDIDO:  ao clicar, o pedido é enviado para a api do backend e acionada ao banco, podendo ser acessada pelo aplicativo mobile
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##### Você pode encontrar essa aplicaçao rodando diretamente no link  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### https://ws-delivery-web.netlify.app/ordens  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+##### obs, a pagina de produtos pode demorar alguns segundos para carregar devido ao inicio lento do backend que está hospedado na Heroku.
 
-## Learn More
+----------------------
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+##### Repositório do Back end, feito em Java e Spring boot https://github.com/wilfft/api-spring-wsdelivery
+
+##### Repositório do mobile, feito em React Native https://github.com/wilfft/front-mobile-reactnative-ts-wsdelivery
+
+
+SCREEN SHOTS
+![image](https://user-images.githubusercontent.com/68745408/110032079-817ae700-7d16-11eb-9ecb-3c035cc60896.png)
+![image](https://user-images.githubusercontent.com/68745408/110032151-9192c680-7d16-11eb-829e-813f0e857891.png)
+![image](https://user-images.githubusercontent.com/68745408/110032404-dc144300-7d16-11eb-9e69-8955e90db259.png)
+
