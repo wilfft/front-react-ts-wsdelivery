@@ -47,6 +47,12 @@ Bibliotecas utilizadas:
 
 SCREEN SHOTS
 ![image](https://user-images.githubusercontent.com/68745408/110032079-817ae700-7d16-11eb-9ecb-3c035cc60896.png)
+
+------------
+
 ![image](https://user-images.githubusercontent.com/68745408/110032151-9192c680-7d16-11eb-829e-813f0e857891.png)
+
+------------
+
 ![image](https://user-images.githubusercontent.com/68745408/110032404-dc144300-7d16-11eb-9e69-8955e90db259.png)
 
